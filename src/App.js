@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Button from './components/Button';
 import Nav from "./components/Nav";
+import Kekambas from './views/Kekambas';
 
 
 export default class App extends Component{
     constructor(props){
         super(props);
-        console.log('App constructed')
         this.state = {
             count: 0,
-            racers: []
+            data: []
         }
     }
 
@@ -17,7 +17,10 @@ export default class App extends Component{
         console.log('App mounted')
         fetch(' https://kekambas-bs.herokuapp.com/kekambas')
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+                this.setState({data})
+            })
     }
 
     handleButtonClick = (step) => {
@@ -40,7 +43,7 @@ export default class App extends Component{
 
                     {myButtonSteps.map((step, i) => <Button key={i} step={step} handleClick={this.handleButtonClick} />)}
                     </div>
-                    {this.state.racers?.map(num => <h2 key={num}>{num}</h2>)}
+                    <Kekambas student={this.state.data} />
                 </div>
             </>
         )
