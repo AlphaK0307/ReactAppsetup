@@ -6,13 +6,12 @@ export default class Kekambas extends Component {
     return (
       <>
         <h1 className='text-center'>Kekambas Students</h1>
-        <table className='table'>
+        <table className='table table-bordered table-hover table-sm'>
             <thead>
-              <tr>
-                
-                <th>first_name</th>
-                <th>last_name</th>
-                <th>id</th>
+              <tr class="bg-dark text-danger">               
+                <th scope="col">first_name</th>
+                <th scope="col">last_name</th>
+                <th scope="col">id</th>
               </tr>
             </thead>
             <tbody>
