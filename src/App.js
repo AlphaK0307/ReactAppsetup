@@ -18,7 +18,7 @@ export default class App extends Component{
         fetch(' https://kekambas-bs.herokuapp.com/kekambas')
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                
                 this.setState({data})
             })
     }
