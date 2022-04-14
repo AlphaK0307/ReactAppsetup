@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import Button from './components/Button';
+import { Routes, Route } from 'react-router-dom'
 import Nav from "./components/Nav";
+import Home from './views/Home';
 import Kekambas from './views/Kekambas';
 
 
@@ -14,7 +15,6 @@ export default class App extends Component{
     }
 
     componentDidMount(){
-        console.log('App mounted')
         fetch(' https://kekambas-bs.herokuapp.com/kekambas')
             .then(res => res.json())
             .then(data => {
@@ -31,19 +31,14 @@ export default class App extends Component{
     }
 
     render(){
-        const myButtonSteps = [1, 10, 100, 1000, 10000, 100000]
-        console.log('App rendered')
         return (
             <>
                 <Nav />
                 <div className='container'>
-                    <h1>Hello World!</h1>
-                    <h4 className='text-center'>Current Count: {this.state.count}</h4>
-                    <div className='d-flex justify-content-around'>
-
-                    {myButtonSteps.map((step, i) => <Button key={i} step={step} handleClick={this.handleButtonClick} />)}
-                    </div>
-                    <Kekambas student={this.state.data} />
+                    <Routes>
+                        <Route path='/' element={<Home handleClick={this.handleButtonClick} count={this.state.count}/>} />
+                        <Route path='student' element={<Kekambas student={this.state.data} />} />
+                    </Routes>
                 </div>
             </>
         )

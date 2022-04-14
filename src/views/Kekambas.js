@@ -8,7 +8,7 @@ export default class Kekambas extends Component {
         <h1 className='text-center'>Kekambas Students</h1>
         <table className='table table-bordered table-hover table-sm'>
             <thead>
-              <tr class="bg-dark text-danger">               
+              <tr className="bg-dark text-danger">               
                 <th scope="col">first_name</th>
                 <th scope="col">last_name</th>
                 <th scope="col">id</th>
