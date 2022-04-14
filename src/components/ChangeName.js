@@ -1,8 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function ChangeName(props) {
-    console.log(props)
-    // const [buttonColor, setButtonColor] = useState('secondary')
+    const [buttonColor, setButtonColor] = useState('secondary')
     const handleFormSubmit = (e) => {
         e.preventDefault();
         const newName = e.target.newName.value;
@@ -16,9 +15,9 @@ export default function ChangeName(props) {
                 <label htmlFor='newName' className='form-label'>New Name</label>
                 <input type='text' name='newName' className='form-control' placeholder='Enter New Name Here'/>
             </div>
-            <input type='submit' className={`btn btn-primary`} />
+            <input type='submit' className={`btn btn-${buttonColor}`} />
         </form>
-        <button className='btn btn-outline-success' >Change Above Button Color</button>
+        <button className='btn btn-outline-success' onClick={() => setButtonColor(buttonColor === 'secondary' ? 'warning': 'secondary')}>Change Above Button Color</button>
         </>
     )
 }
