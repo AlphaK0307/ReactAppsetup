@@ -16,7 +16,7 @@ export default class App extends Component{
     }
 
     componentDidMount(){
-        fetch(' https://kekambas-bs.herokuapp.com/kekambas')
+        fetch(' https://kekambas-bs.herokuapp.com/posts')
             .then(res => res.json())
             .then(data => {
                 
